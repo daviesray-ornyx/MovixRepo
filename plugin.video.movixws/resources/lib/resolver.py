@@ -36,22 +36,13 @@ def ResolveUrl(url):
 			matches = re.compile("subtitles' src='(.+?)'").findall(html)
 			subtitles = matches[0] if len(matches) > 0 else ''
 			link = "{0};;{1}".format('http:'+link, 'http:'+subtitles)
-		elif "openload" in url:
-                        xbmc.log(str(url)+">>>>>>>"*40)
-			vid = YDStreamExtractor.getVideoInfo(url, quality=0)
-                        link = vid.streamURL()
-                        xbmc.log(str(url)+">openload>"*5)
-                elif "streamin" in url:
-                        xbmc.log(str(url)+">>>>>>>"*40)
-			vid = YDStreamExtractor.getVideoInfo(url, quality=0)
-                        link = vid.streamURL()
-                        xbmc.log(str(url)+">streamin>"*5)
+		
 		else:
 			if "movreel" in url:
 				url = url.replace("/embed-","/")
-			#elif "openload" in url:
-				#url = url.replace(".co",".io")                              
-				#xbmc.log(str(url)+">>>>>>>"*40)
+			elif "openload" in url:
+				url = url.replace(".co",".io")                              
+				xbmc.log(str(url)+">>>>>>>"*40)
 			item = urlresolver.HostedMediaFile(url)
 			xbmc.log(str(item)+"?????????"*40)
 			link = urlresolver.resolve(item.get_url())

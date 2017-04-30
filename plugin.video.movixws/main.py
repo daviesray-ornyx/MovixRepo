@@ -7,10 +7,10 @@ addonPath = xbmc.translatePath(Addon.getAddonInfo("path")).decode("utf-8")
 libDir = os.path.join(addonPath, 'resources', 'lib')
 sys.path.insert(0, libDir)
 import resolver, urlresolver, cloudflare, cache, ua, common, login , logg
-
+addon_id     = 'plugin.video.movixws'
 AddonName = Addon.getAddonInfo("name")
 icon = Addon.getAddonInfo('icon')
-
+FANART = os.path.join(addonPath, 'fanart.jpg')
 Domain = Addon.getSetting("domain")
 baseUrl = Domain[:-1] if Domain.endswith('/') else Domain
 handle = int(sys.argv[1])
@@ -91,24 +91,24 @@ def yearWs():
 
 def IndexPagePremium(url):
 	if baseUrl+'/movies' == url:
-		addDir('[COLOR gold][B] חיפוש [/B][/COLOR]','1',13,'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQlAUVuxDFwhHYzmwfhcUEBgQXkkWi5XnM4ZyKxGecol952w-Rp',True)
-		addDir('[COLOR gold] מיון סרטים לפי שנה [/COLOR]',' ',11,'http://i.imgur.com/jIw6Zzh.png?1',True)
-		addDir('[COLOR gold] כל הסרטים שבאתר [/COLOR]',"{0}/movies".format(baseUrl),12,'http://noobsandnerds.com/addons/cache/Addons/plugin.video.moviereleases/icon.png',True)
-		addDir('[COLOR gold] הסרטים הנצפים ביותר [/COLOR]','הסרטים הנצפים ביותר|עזרו לנו להמשיך להתקיים',9,'http://i.imgur.com/9jowwKu.png',True)
-		addDir('[COLOR gold] סרטים שנוספו לאחרונה [/COLOR]','id="recent-movies"|<!--recent movies tab-->',9,'http://i.imgur.com/y9T5Peo.png',True)
-		addDir('[COLOR gold] הסרטים המדורגים ביותר [/COLOR]','id="top-rated-movies"|<!--top tab-->',9,'http://i.imgur.com/7y1EqNG.png',True)
-		addDir('[COLOR gold] סרטים עם הכי הרבה תגובות [/COLOR]','id="most-links-movies"|<!--most linked tab-->',9,'http://i.imgur.com/87uYwaK.png',True)
+		addDir('[COLOR orange][B] חיפוש [/B][/COLOR]','1',13,'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQlAUVuxDFwhHYzmwfhcUEBgQXkkWi5XnM4ZyKxGecol952w-Rp',FANART,True)
+		addDir('[COLOR orange] מיון סרטים לפי שנה [/COLOR]',' ',11,'http://i.imgur.com/jIw6Zzh.png?1',FANART ,True)
+		addDir('[COLOR orange] כל הסרטים שבאתר [/COLOR]',"{0}/movies".format(baseUrl),12,'http://noobsandnerds.com/addons/cache/Addons/plugin.video.moviereleases/icon.png',FANART,True)
+		addDir('[COLOR orange] הסרטים הנצפים ביותר [/COLOR]','הסרטים הנצפים ביותר|עזרו לנו להמשיך להתקיים',9,'http://i.imgur.com/9jowwKu.png',FANART,True)
+		addDir('[COLOR orange] סרטים שנוספו לאחרונה [/COLOR]','id="recent-movies"|<!--recent movies tab-->',9,'http://i.imgur.com/y9T5Peo.png',FANART,True)
+		addDir('[COLOR orange] הסרטים המדורגים ביותר [/COLOR]','id="top-rated-movies"|<!--top tab-->',9,'http://i.imgur.com/7y1EqNG.png',FANART,True)
+		addDir('[COLOR orange] סרטים עם הכי הרבה תגובות [/COLOR]','id="most-links-movies"|<!--most linked tab-->',9,'http://i.imgur.com/87uYwaK.png',FANART,True)
    		
         
 		
 
 	if baseUrl+'/series' == url:
-		addDir('[COLOR gold][B] חיפוש [/B][/COLOR]','2',13,'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQlAUVuxDFwhHYzmwfhcUEBgQXkkWi5XnM4ZyKxGecol952w-Rp',True)
-		addDir('[COLOR gold] כל הסדרות שבאתר [/COLOR]',"{0}/series".format(baseUrl),12,'https://farm6.staticflickr.com/5602/15700070751_88d83d38fd_o_d.png',True)
-		addDir('[COLOR gold] הסדרות הנצפות ביותר [/COLOR]','id="most-views-tv-shows"|<!--most commented tab-->',9,'http://i.imgur.com/9jowwKu.png',True)
-		addDir('[COLOR gold] סדרות שנוספו לאחרונה [/COLOR]','id="recent-tv-shows"|<!--recent tv shows-->',9,'http://i.imgur.com/y9T5Peo.png',True)
-		addDir('[COLOR gold] הסדרות המדורגות ביותר [/COLOR]','id="top-rated-tv-shows"|<!--top tab-->',9,'http://i.imgur.com/7y1EqNG.png',True)
-		addDir('[COLOR gold] סדרות עם הכי הרבה תגובות [/COLOR]','id="most-links-tv-shows"|<!--most linked tab-->',9,'http://i.imgur.com/87uYwaK.png',True)
+		addDir('[COLOR orange][B] חיפוש [/B][/COLOR]','2',13,'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQlAUVuxDFwhHYzmwfhcUEBgQXkkWi5XnM4ZyKxGecol952w-Rp',FANART,True)
+		addDir('[COLOR orange] כל הסדרות שבאתר [/COLOR]',"{0}/series".format(baseUrl),12,'https://farm6.staticflickr.com/5602/15700070751_88d83d38fd_o_d.png',FANART,True)
+		addDir('[COLOR orange] הסדרות הנצפות ביותר [/COLOR]','id="most-views-tv-shows"|<!--most commented tab-->',9,'http://i.imgur.com/9jowwKu.png',FANART,True)
+		addDir('[COLOR orange] סדרות שנוספו לאחרונה [/COLOR]','id="recent-tv-shows"|<!--recent tv shows-->',9,'http://i.imgur.com/y9T5Peo.png',FANART,True)
+		addDir('[COLOR orange] הסדרות המדורגות ביותר [/COLOR]','id="top-rated-tv-shows"|<!--top tab-->',9,'http://i.imgur.com/7y1EqNG.png',FANART,True)
+		addDir('[COLOR orange] סדרות עם הכי הרבה תגובות [/COLOR]','id="most-links-tv-shows"|<!--most linked tab-->',9,'http://i.imgur.com/87uYwaK.png',FANART,True)
 
 
 
@@ -131,7 +131,7 @@ def IndexPage(url):
 				if item[0].strip() != '':
 					#name = '[COLOR red] למנויים[/COLOR] ' + name
 					continue
-				addDir(name, '{0}{1}'.format(baseUrl, item[2]), 4, item[1], True, item[4])
+				addDir(name, '{0}{1}'.format(baseUrl, item[2]), 4, item[1],FANART, True, item[4])
 		except Exception as ex:
 			xbmc.log(str(ex), 3)
 		if current_page >= last_page:
@@ -141,7 +141,7 @@ def IndexPage(url):
 		url += str(current_page)
 
 	if current_page <= last_page:
-		addDir('[COLOR blue]תוצאות נוספות[/COLOR]', url, 2, '')
+		addDir('[COLOR blue]תוצאות נוספות[/COLOR]', url, 2, '','')
 	return True
 
 
@@ -176,7 +176,7 @@ def IndexPageP(url):
 			matches, last_page, step = cache.get(IndexPagePs_regex, 72, url, table='pages')
 			for item in matches:
 				name = item[2]
-				addDir(name, '{0}{1}'.format(baseUrl, item[1]), 4, item[0], True, item[3],isPrem=True)# m5
+				addDir(name, '{0}{1}'.format(baseUrl, item[1]), 4, item[0],FANART, True, item[3],isPrem=True)# m5
 		except Exception as ex:
 			xbmc.log(str(ex), 3)
 		if current_page >= last_page:
@@ -186,7 +186,7 @@ def IndexPageP(url):
 		url += str(current_page)
 
 	if current_page <= last_page:
-		addDir('[COLOR cyan]תוצאות נוספות[/COLOR]', url, 2, '')
+		addDir('[COLOR cyan]תוצאות נוספות[/COLOR]', url, 2, '','')
 	return True
 
 def IndexPageP_regex(url):
@@ -220,7 +220,7 @@ def IndexPagePs(url):
 			matches, last_page, step = cache.get(IndexPagePs_regex, 72, url, table='pages')
 			for item in matches:
 				name = item[2]
-				addDir(name, '{0}{1}'.format(baseUrl, item[1]), 4, item[0], True, item[3],isPrem=True)# m5
+				addDir(name, '{0}{1}'.format(baseUrl, item[1]), 4, item[0],FANART, True, item[3],isPrem=True)# m5
 		except Exception as ex:
 			xbmc.log(str(ex), 3)
 		if current_page >= last_page:
@@ -230,7 +230,7 @@ def IndexPagePs(url):
 		url += str(current_page)
 
 	if current_page <= last_page:
-		addDir('[COLOR cyan]תוצאות נוספות[/COLOR]', url, 2, '')
+		addDir('[COLOR cyan]תוצאות נוספות[/COLOR]', url, 2, '','')
 	return True
 
 def IndexPagePs_regex(url):
@@ -278,20 +278,24 @@ def GetPagegSteps(result, current_page):
 	return last_page, step
 
 
-def addDir(name, url, mode, iconimage, isFolder=True, description='', isPrem=False):
+def addDir(name, url, mode, iconimage,fanart, isFolder=True, description='', isPrem=False):
 	#u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&iconimage="+urllib.quote_plus(iconimage)+"&description="+urllib.quote_plus(description)+"&isprem="+str(isPrem)
 	xbmc.log("-"*40+str(url)+str(mode))
 	u=sys.argv[0]+"?url="+urllib.quote_plus(url)+"&mode="+str(mode)+"&name="+urllib.quote_plus(name)+"&iconimage="+urllib.quote_plus(iconimage)+"&description="+"&isprem="+str(isPrem)
 	liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
 	liz.setInfo( type="Video", infoLabels={ "Title": name , "Plot": str(description)} )
+	liz.setProperty("fanart_Image", fanart)
 	if not isFolder:
 		liz.setProperty("IsPlayable","true")
 	xbmcplugin.addDirectoryItem(handle=handle,url=u,listitem=liz,isFolder=isFolder)
 
 def GetSeasons(series_num, iconimage, description, color):
-	seasons = cache.get(GetSeasons_regex, 168, series_num, table="pages")
+	seasons = cache.get(GetSeasons_regex, 168, series_num,table="pages")
 	for season in seasons:
-		addDir('[COLOR {2}]{0}  {1}[/COLOR]'.format(name, season[1], color), '{0}/watchmovies/get_episodes/{1}?seasonid={2}'.format(baseUrl, series_num, season[0]), 3, iconimage, True, description)
+		if params.get("isprem") == "True":
+			addDir('[COLOR blue]{0} - {1}[/COLOR]'.format(name, season[1], color), '{0}/watchmovies/get_episodes/{1}?seasonid={2}'.format(baseUrl, series_num, season[0]), 3, iconimage,FANART, True, description,isPrem=True)
+		else :
+			addDir('[COLOR blue]{0} - {1}[/COLOR]'.format(name, season[1], color), '{0}/watchmovies/get_episodes/{1}?seasonid={2}'.format(baseUrl, series_num, season[0]), 3, iconimage,FANART, True, description)
 
 def GetSeasons_regex(series_num):
 	result = cloudflare.source('{0}/watchmovies/get_seasons/{1}'.format(baseUrl, series_num))
@@ -302,7 +306,10 @@ def GetEpisodes(season_num, iconimage, description):
 	episodes = cache.get(GetEpisodes_regex, 24, season_num, table="pages")
 	url = season_num.replace('get_episodes', 'get_episode')
 	for episode in episodes:
-		addDir("{0}  {1}".format(name, episode[2]), "{0}&episodeid={1}".format(url, episode[1]), 4, iconimage, True, description)
+		if params.get("isprem") == "True":
+			addDir('[COLOR blue]{0} - {1}[/COLOR]'.format(name, episode[2]), "{0}&episodeid={1}".format(url, episode[1]), 4, iconimage,FANART, True, description,isPrem=True)
+		else :
+			addDir('[COLOR blue]{0} - {1}[/COLOR]'.format(name, episode[2]), "{0}&episodeid={1}".format(url, episode[1]), 4, iconimage,FANART, True, description)
 
 def GetEpisodes_regex(season_num):
 	result = cloudflare.source(season_num)
@@ -358,7 +365,7 @@ def LinksPage(url, iconimage, description):
 		xbmc.log("descriptions issue : "+"+++"*10)
 
 	if seasons is None:
-		addDir('[COLOR red] לא נמצאו מקורות ניגון [/COLOR]','99',99,'',False, description)
+		addDir('[COLOR red] לא נמצאו מקורות ניגון [/COLOR]','99',99,'','',False, description)
 		if not data:
 			return
 	elif seasons:
@@ -369,7 +376,7 @@ def LinksPage(url, iconimage, description):
 	else:
 		try:
 			if len(links) < 1:
-				addDir('[COLOR red] לא נמצאו מקורות ניגון [/COLOR]','99',99,'',False, description)
+				addDir('[COLOR red] לא נמצאו מקורות ניגון [/COLOR]','99',99,'','',False, description)
 				xbmc.log("&&&"*30)
 				return
 			elif len(links) > 1:
@@ -378,11 +385,11 @@ def LinksPage(url, iconimage, description):
 				for link in links:
 					xbmc.log(str(link))
 					playingUrlsList.append(link[2])
-				addDir('[COLOR red] בחר בניגון אוטומטי [/COLOR]','99',99,'',False, description)
-				addDir('[COLOR {1}]{0} - ניגון אוטומטי[/COLOR]'.format(name, color), json.dumps(playingUrlsList), 7, iconimage, False, description)
-				addDir('[COLOR red]  או בחר מקור לניגון, אם לא עובד נסה אחר [/COLOR]','99',99,'',False, description)
+				addDir('[COLOR red] בחר בניגון אוטומטי [/COLOR]','99',99,'','',False, description)
+				addDir('[COLOR white] - ניגון אוטומטי[/COLOR][COLOR blue]{0}[/COLOR]'.format(name, color), json.dumps(playingUrlsList), 7, iconimage,FANART, False, description)
+				addDir('[COLOR red]  או בחר מקור לניגון, אם לא עובד נסה אחר [/COLOR]','99',99,'','',False, description)
 			for link in links:
-				addDir("[COLOR {3}]{0} - {1} - איכות {2}[/COLOR]".format(name, link[0], link[1], color),link[2],5,iconimage,False, description)
+				addDir("[COLOR white]{2} - איכות - {0} - [/COLOR][COLOR blue]{1}[/COLOR]".format(link[0], name, link[1], color),link[2],5,iconimage,FANART,False, description)
 			return
 		except Exception, e:
 			xbmc.log(str(e)+"+++"*50)
@@ -398,11 +405,11 @@ def LinksPage(url, iconimage, description):
 				for link in links:
 					xbmc.log(str(link))
 					playingUrlsList.append(link[2])
-				addDir('[COLOR red] בחר בניגון אוטומטי [/COLOR]','99',99,'',False, description)
-				addDir('[COLOR {1}]{0} - ניגון אוטומטי[/COLOR]'.format(name), json.dumps(playingUrlsList), 7, iconimage, False, description)
-				addDir('[COLOR red]  או בחר מקור לניגון, אם לא עובד נסה אחר [/COLOR]','99',99,'',False, description)
+				addDir('[COLOR red] בחר בניגון אוטומטי [/COLOR]','99',99,'','',False, description)
+				addDir('[COLOR {1}]{0} - ניגון אוטומטי[/COLOR]'.format(name), json.dumps(playingUrlsList), 7, iconimage,FANART, False, description)
+				addDir('[COLOR red]  או בחר מקור לניגון, אם לא עובד נסה אחר [/COLOR]','99',99,'','',False, description)
 			for link in links:
-				addDir("[COLOR {3}]{0} - {1} - איכות {2}[/COLOR]".format(name, link[0], link[1], color),link[2],5,iconimage,False, description)
+				addDir("[COLOR {3}]{0} - {1} - איכות {2}[/COLOR]".format(name, link[0], link[1], color),link[2],5,iconimage,FANART,False, description)
 		except Exception, e:
 			xbmc.log(str(e)+"+++"*50)
 
@@ -467,40 +474,35 @@ def Trailer_regex(url):
 	return matches
 
 def Categories():
-	# addDir("Premium Movies - סרטים","{0}/movies".format(baseUrl),202,'http://noobsandnerds.com/addons/cache/Addons/plugin.video.moviereleases/icon.png')
-	# addDir("Premium Series - סדרות","{0}/series".format(baseUrl),202,'http://laslatinitas.com/wp-content/uploads/2015/05/photo.jpg.png')
-	# addDir("Search - חיפוש"," ",6,'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQlAUVuxDFwhHYzmwfhcUEBgQXkkWi5XnM4ZyKxGecol952w-Rp')
-	# addDir("Free Movies - סרטים","{0}/movies".format(baseUrl),2,'http://www.aldeahostelcostarica.com/wp-content/uploads/2015/03/aldea_movie_day-500x300.jpg')
-	# addDir("Free Series - סדרות","{0}/series".format(baseUrl),2,'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ8J4zMJ1vcu5vG5WYoVG2pZRzrCSbdghVXDPf0L08vS1mehbTzcg')
-	addDir("[COLOR gold][B]Premium Movies - סרטים פרימיום[/B][/COLOR]","{0}/movies".format(baseUrl),202,'http://noobsandnerds.com/addons/cache/Addons/plugin.video.moviereleases/icon.png')
-	addDir("[COLOR gold][B]Premium Series - סדרות פרימיום[/B][/COLOR]","{0}/series".format(baseUrl),202,'https://farm6.staticflickr.com/5602/15700070751_88d83d38fd_o_d.png')
-	addDir("Free Movies - סרטים חינמי","{0}/movies".format(baseUrl),2,'https://pbs.twimg.com/profile_images/632550903829143553/l1mcM8bL.png')
-	addDir("Free Series - סדרות חינמי","{0}/series".format(baseUrl),2,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxnuZgOpXn5ZL9SXcE5VsEeXBXwm83Pa22wGwN2EWAOl12-zcAgA')
-	addDir("Clear data - ניקוי נתונים","fullClean",22,'http://static1.squarespace.com/static/5411d5c0e4b02e1c8b27565a/t/55c0fd10e4b074070c899cd3/1438711058259/quartz+cuvette+cleaning?format=500w')
-	addDir("Search - חיפוש"," ",6,'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQlAUVuxDFwhHYzmwfhcUEBgQXkkWi5XnM4ZyKxGecol952w-Rp')
-	addDir("Dubbed - מדובבים","{0}/search_movies?q=%D7%9E%D7%93%D7%95%D7%91%D7%91&sb=&year=".format(baseUrl),2,'http://www.afaqs.com/all/news/images/news_story_grfx/2015/45297_1_home_big.jpg')
-	addDir("Kids - ילדים","{0}/genres/Kids".format(baseUrl),2,'http://www.in-hebrew.co.il/images/logo-s.jpg')
-	addDir("Animation - אנימציה","{0}/genres/Animation".format(baseUrl),2,'http://icons.iconarchive.com/icons/designbolts/free-movie-folder/256/Animated-icon.png')
-	addDir("Fantasy - פנטזיה","{0}/genres/Fantasy".format(baseUrl),2,'http://blog.tapuz.co.il/girlkido/images/3472680_852.jpg')
-	addDir("Family - משפחה","{0}/genres/Family".format(baseUrl),2,'http://pschools.haifanet.org.il/dror/DocLib1/%D7%99%D7%95%D7%9D%20%D7%9E%D7%A9%D7%A4%D7%97%D7%94%20%D7%A9%D7%9E%D7%97.jpg')
-	addDir("Israeli - ישראלי","{0}/genres/israeli".format(baseUrl),2,'http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/250px-Flag_of_Israel.svg.png')
-	addDir("Live Shows - הופעות חיות","{0}/genres/LiveShow".format(baseUrl),2,'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR1kNugU_x7YQtz7Crjr1UmwOJRyxFC25zDwIkXc5jNQszermsw')
-	addDir("Comedy - קומדיה","{0}/genres/Comedy".format(baseUrl),2,'http://www.filmsite.org/images/comedy-genre.jpg')
-	addDir("Drama - דרמה","{0}/genres/Drama".format(baseUrl),2,'http://comps.canstockphoto.com/can-stock-photo_csp11392197.jpg')
-	addDir("Documentary - דוקומנטרי","{0}/genres/Documentary".format(baseUrl),2,'http://icons.iconarchive.com/icons/aaron-sinuhe/tv-movie-folder/512/Documentaries-National-Geographic-icon.png')
-	addDir("Action - פעולה","{0}/genres/Action".format(baseUrl),2,'http://pmtips.net/wp-content/uploads/2012/02/action.jpg')
-	addDir("Crime - פשע","{0}/genres/Crime".format(baseUrl),2,'http://drthurstone.com/wp-content/uploads/2014/07/Crime-Pix.jpg')
-	addDir("Thriller - מתח","{0}/genres/Thriller".format(baseUrl),2,'http://becplmovies.files.wordpress.com/2011/06/thrillers_title12.jpg')
-	addDir("War - מלחמה","{0}/genres/War".format(baseUrl),2,'http://cdn2.pitchfork.com/news/53502/0ff1bba7.jpg')
-	addDir("Mystery - מיסתורין","{0}/genres/Mystery".format(baseUrl),2,'http://www.barronmind.com/WMHlogoweb.gif')
-	addDir("Horror - אימה","{0}/genres/Horror".format(baseUrl),2,'https://cdn4.iconfinder.com/data/icons/desktop-halloween/256/Mask.png')
-	addDir("Sci-Fi - מ.בדיוני","{0}/genres/Sci-Fi".format(baseUrl),2,'http://images.clipartpanda.com/sci-fi-clipart-peacealienbw.png')
+	addDir("[COLOR orange][B]Premium Movies - סרטים פרימיום[/B][/COLOR]","{0}/movies".format(baseUrl),202,'http://noobsandnerds.com/addons/cache/Addons/plugin.video.moviereleases/icon.png',FANART)
+	addDir("[COLOR orange][B]Premium Series - סדרות פרימיום[/B][/COLOR]","{0}/series".format(baseUrl),202,'https://farm6.staticflickr.com/5602/15700070751_88d83d38fd_o_d.png',FANART)
+	addDir("Free Movies - סרטים חינמי","{0}/movies".format(baseUrl),2,'https://pbs.twimg.com/profile_images/632550903829143553/l1mcM8bL.png',FANART)
+	addDir("Free Series - סדרות חינמי","{0}/series".format(baseUrl),2,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxnuZgOpXn5ZL9SXcE5VsEeXBXwm83Pa22wGwN2EWAOl12-zcAgA',FANART)
+	addDir("Clear data - ניקוי נתונים","fullClean",22,'http://static1.squarespace.com/static/5411d5c0e4b02e1c8b27565a/t/55c0fd10e4b074070c899cd3/1438711058259/quartz+cuvette+cleaning?format=500w',FANART)
+	addDir("Search - חיפוש"," ",6,'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQlAUVuxDFwhHYzmwfhcUEBgQXkkWi5XnM4ZyKxGecol952w-Rp',FANART)
+	addDir("Dubbed - מדובבים","{0}/search_movies?q=%D7%9E%D7%93%D7%95%D7%91%D7%91&sb=&year=".format(baseUrl),2,'http://www.afaqs.com/all/news/images/news_story_grfx/2015/45297_1_home_big.jpg',FANART)
+	addDir("Kids - ילדים","{0}/genres/Kids".format(baseUrl),2,'http://www.in-hebrew.co.il/images/logo-s.jpg',FANART)
+	addDir("Animation - אנימציה","{0}/genres/Animation".format(baseUrl),2,'http://icons.iconarchive.com/icons/designbolts/free-movie-folder/256/Animated-icon.png',FANART)
+	addDir("Fantasy - פנטזיה","{0}/genres/Fantasy".format(baseUrl),2,'http://blog.tapuz.co.il/girlkido/images/3472680_852.jpg',FANART)
+	addDir("Family - משפחה","{0}/genres/Family".format(baseUrl),2,'http://pschools.haifanet.org.il/dror/DocLib1/%D7%99%D7%95%D7%9D%20%D7%9E%D7%A9%D7%A4%D7%97%D7%94%20%D7%A9%D7%9E%D7%97.jpg',FANART)
+	addDir("Israeli - ישראלי","{0}/genres/israeli".format(baseUrl),2,'http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/250px-Flag_of_Israel.svg.png',FANART)
+	addDir("Live Shows - הופעות חיות","{0}/genres/LiveShow".format(baseUrl),2,'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR1kNugU_x7YQtz7Crjr1UmwOJRyxFC25zDwIkXc5jNQszermsw',FANART)
+	addDir("Comedy - קומדיה","{0}/genres/Comedy".format(baseUrl),2,'http://www.filmsite.org/images/comedy-genre.jpg',FANART)
+	addDir("Drama - דרמה","{0}/genres/Drama".format(baseUrl),2,'http://comps.canstockphoto.com/can-stock-photo_csp11392197.jpg',FANART)
+	addDir("Documentary - דוקומנטרי","{0}/genres/Documentary".format(baseUrl),2,'http://icons.iconarchive.com/icons/aaron-sinuhe/tv-movie-folder/512/Documentaries-National-Geographic-icon.png',FANART)
+	addDir("Action - פעולה","{0}/genres/Action".format(baseUrl),2,'http://pmtips.net/wp-content/uploads/2012/02/action.jpg',FANART)
+	addDir("Crime - פשע","{0}/genres/Crime".format(baseUrl),2,'http://drthurstone.com/wp-content/uploads/2014/07/Crime-Pix.jpg',FANART)
+	addDir("Thriller - מתח","{0}/genres/Thriller".format(baseUrl),2,'http://becplmovies.files.wordpress.com/2011/06/thrillers_title12.jpg',FANART)
+	addDir("War - מלחמה","{0}/genres/War".format(baseUrl),2,'http://cdn2.pitchfork.com/news/53502/0ff1bba7.jpg',FANART)
+	addDir("Mystery - מיסתורין","{0}/genres/Mystery".format(baseUrl),2,'http://www.barronmind.com/WMHlogoweb.gif',FANART)
+	addDir("Horror - אימה","{0}/genres/Horror".format(baseUrl),2,'https://cdn4.iconfinder.com/data/icons/desktop-halloween/256/Mask.png',FANART)
+	addDir("Sci-Fi - מ.בדיוני","{0}/genres/Sci-Fi".format(baseUrl),2,'http://images.clipartpanda.com/sci-fi-clipart-peacealienbw.png',FANART)
 	xbmc.executebuiltin('Container.SetViewMode(500)')
 
 def MostInCategory(category):
 	matches = cache.get(MostInCategory_regex, 0, baseUrl,category , table="pages") if 'recent' in category else cache.get(MostInCategory_regex, 24, baseUrl, category ,table="pages")
 	for match in matches:
-		addDir(match[2], match[1], 4, match[0], True, ' ', isPrem=True)
+		addDir(match[2], match[1], 4, match[0],FANART, True, ' ', isPrem=True)
 
 def MostInCategory_regex(url ,category):
 	html , cookie = cloudflare.request(url)

@@ -1,3 +1,6 @@
+[B]v1.3.1[/B]
+- bugfix for last version.
+- Added fanart in all menus.
 [B]v1.3.0[/B]
 - requires movix repo.
 - Added user login for subscribed users to addon-setting.
