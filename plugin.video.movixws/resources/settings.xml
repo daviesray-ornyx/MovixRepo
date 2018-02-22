@@ -2,7 +2,7 @@
 <settings>
 	<setting label="בדוק בדפדפן באיזו כתובת ניתן להגיע לאתר והקלד את הכתובת כאן" type="lsep"/>
 	<setting label="MOVIX.ME ניתן לבדוק גם בעמוד הפייסבוק של" type="lsep"/>
-	<setting id="domain" type="text" label="DOAMIN" default="http://www.movix.me" />
+	<setting id="domain" type="text" label="DOAMIN" default="http://movix.byethost17.com" />
 	<setting id="userAgent" type="text" label="User-Agent" default="" />
 	<setting id="username" type="text" label="שם משתמש" default=""/>
 	<setting id="password" type="text" label="סיסמא" option="hidden" enable="!eq(-1,)" default=""/>
